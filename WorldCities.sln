@@ -4,11 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.Server", "WorldCities.Server\WorldCities.Server.csproj", "{0E8D91D9-3E94-4488-BDF4-C2DE53C66AAD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C7ADEE5E-5C9C-4D84-B14C-5AD27F0269FC} = {C7ADEE5E-5C9C-4D84-B14C-5AD27F0269FC}
-	EndProjectSection
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "worldcities.client", "worldcities.client\worldcities.client.esproj", "{C7ADEE5E-5C9C-4D84-B14C-5AD27F0269FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.Server.Tests", "WorldCities.Server.Tests\WorldCities.Server.Tests.csproj", "{993CD56A-F731-4BD6-95AF-A2C563882C5A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E8D91D9-3E94-4488-BDF4-C2DE53C66AAD} = {0E8D91D9-3E94-4488-BDF4-C2DE53C66AAD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{C7ADEE5E-5C9C-4D84-B14C-5AD27F0269FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7ADEE5E-5C9C-4D84-B14C-5AD27F0269FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C7ADEE5E-5C9C-4D84-B14C-5AD27F0269FC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{993CD56A-F731-4BD6-95AF-A2C563882C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993CD56A-F731-4BD6-95AF-A2C563882C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993CD56A-F731-4BD6-95AF-A2C563882C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993CD56A-F731-4BD6-95AF-A2C563882C5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -27,7 +27,11 @@ export class CityEditComponent extends BaseFormComponent implements OnInit {
     id?: number;
 
     // the countries array for the select
-    countries?: Country[];
+    countries?: Observable<Country[]>;
+
+    // Activity Log (for debugging purposes)
+    activityLog: string = '';
+
     constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router,
@@ -51,6 +55,23 @@ export class CityEditComponent extends BaseFormComponent implements OnInit {
         }, null, this.isDupeCity());
 
         this.loadData();
+
+        // react to form changes
+        this.form.valueChanges
+            .subscribe(() => {
+                if (!this.form.dirty) {
+                    this.log("Form Model has been loaded.");
+                }
+                else {
+                    this.log("Form was updated by the user.");
+                }
+            });
+    }
+
+    log(str: string) {
+        this.activityLog += "["
+            + new Date().toLocaleString()
+            + "] " + str + "<br />";
     }
 
     loadData() {
@@ -86,12 +107,21 @@ export class CityEditComponent extends BaseFormComponent implements OnInit {
 
     loadCountries() {
         // fetch all the countries from the server
-        this.cityService.getCountries(0, 9999, "name", "asc", null, null).subscribe({
+        /*this.cityService.getCountries(0, 9999, "name", "asc", null, null).subscribe({
             next: (result) => {
                 this.countries = result.data;
             },
             error: (error) => console.error(error)
-        });
+        });*/
+
+        this.countries = this.cityService.getCountries(
+            0,
+            9999,
+            "name",
+            "asc",
+            null,
+            null
+        ).pipe(map(x => x.data));
     }
 
     onSubmit() {
